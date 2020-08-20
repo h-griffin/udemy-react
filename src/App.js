@@ -9,7 +9,7 @@ class App extends Component {
             </div>
         );
 
-    //                            element  object  children  text
+        //                         element  object  children  text
         // return React.createElement('div',null,'h1','hello world');
 
         //                                                         h1 elememnt      h1 text       reg text
