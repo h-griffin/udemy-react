@@ -29,4 +29,6 @@ app.js remove logo import
 - app.js app component
     - component must return one root element (big div)
     - return ( more than one line )
+- new person filder
+    components capital folders
     
