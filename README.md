@@ -29,6 +29,8 @@ app.js remove logo import
 - app.js app component
     - component must return one root element (big div)
     - return ( more than one line )
-- new person filder
+- new person folder
     components capital folders
-    
+- add state to class to use change name button
+- add button event handler
+    - do not use () when referring to event handler, use reference only do not invoke
