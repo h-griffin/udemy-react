@@ -34,3 +34,7 @@ app.js remove logo import
 - add state to class to use change name button
 - add button event handler
     - do not use () when referring to event handler, use reference only do not invoke
+- function based components with hooks
+    - replace state
+- class based components modify state
+- to use onclick in coponent, pass ref in as prop
