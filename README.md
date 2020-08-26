@@ -38,3 +38,4 @@ app.js remove logo import
     - replace state
 - class based components modify state
 - to use onclick in coponent, pass ref in as prop
+- inline and component styling
