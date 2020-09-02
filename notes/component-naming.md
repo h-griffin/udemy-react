@@ -4,7 +4,6 @@ In the next lecture, we'll learn how to manage state in functional components (i
 In case you're getting an error with the code shown in the next lecture, simply assign a capitalized variable name to the variable that holds your functional component.
 
 ## Example:
-
 Use
 ```const App = () => { ... }```
 
