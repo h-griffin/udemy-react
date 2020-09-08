@@ -13,7 +13,8 @@ class App extends Component {
             { name:'bryce', age:22 },
             { name:'hunter', age:22 },
         ],
-        otherState: 'some other state value not touched by persons'
+        otherState: 'some other state value not touched by persons',
+        showPersons: false,
     }
 
 
@@ -39,6 +40,11 @@ class App extends Component {
         })
     }
     
+    togglePersonsHandler = () => {
+        // arrow function to property to make method that can use 'this'
+        const doesShow = this.state.showPersons;
+        this.setState({showPersons : !doesShow});   // ! converts to opposite
+    }
 
     render() {
         // BUTTON -- 'inline' style css must be written in javascript
@@ -75,6 +81,26 @@ class App extends Component {
                     name={this.state.persons[2].name} 
                     age={this.state.persons[2].age}
                     >i like games</Person>
+                
+
+                <button 
+                    style={style}
+                    onClick={this.togglePersonsHandler}>Toggle Persons</button>  
+
+                { this.state.showPersons ?              // <<<<< turnary expression check: statement/if
+                    <div>
+                        <Person 
+                            name={this.state.persons[1].name} 
+                            age={this.state.persons[1].age}
+                            changed={this.nameChangedHandler}     // change name input
+                            >am i showing yet?</Person>
+
+                        <Person 
+                            name={this.state.persons[2].name} 
+                            age={this.state.persons[2].age}
+                            >can you see me?</Person>
+                </div> : null                                // << turnary expression : else
+                }
 
             </div>
         );
