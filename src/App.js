@@ -87,6 +87,8 @@ class App extends Component {
 
         }
 
+        let classes = ['red', 'bold'].join(' ');
+
         return (
             <div className="App">
                 <h1>hello, world!</h1>
