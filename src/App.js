@@ -1,5 +1,7 @@
 // APP WITH CLASS BASED COMPONENTS
 
+//APP WITH DYNAMIC PERSONS DISPLAY
+
 import React, { Component } from 'react';
 
 import './App.css';
@@ -9,84 +11,94 @@ import Person from './Person/Person'
 class App extends Component {
     state = {
         persons: [
-            { name:'griffin', age:18 },
-            { name:'bryce', age:22 },
-            { name:'hunter', age:22 },
+            { id: 'all', name:'griffin', age:18 },
+            { id: 'these', name:'bryce', age:22 },
+            { id: 'unique', name:'hunter', age:22 },
         ],
-        otherState: 'some other state value not touched by persons'
+        otherState: 'some other state value not touched by persons',
+        showPersons: false,
     }
 
 
-    switchNameHandler = (newName) => {
-        console.log('switch name was clicked');
-        // DONT DO THIS -- this.state.persons[0].name = 'Haley Griffin'
-        this.setState({
-            persons: [
-                { name: newName, age:18 },                  // change name click
-                { name:'Bryce Griffin', age:22 },
-                { name:'Hunter Williams', age:22 },
-            ]
-        })
-    }
+    nameChangedHandler = ( event, id) => {
+        const personIndex = this.state.persons.findIndex(p => {
+            return p.id === id; //return bool
+        });
 
-    nameChangedHandler = (event) => {
-        this.setState({
-            persons: [
-                { name:'griffin', age:18 },
-                { name: event.target.value, age:22 },       // change name input
-                { name:'Hunter Williams', age:22 },
-            ]
-        })
+        const person = { // safely copy obj with spread
+            ...this.state.persons[personIndex]
+        };
+
+        person.name = event.target.value;
+
+        const persons = [...this.state.persons];
+        persons[personIndex] = person;      // update copy
+
+        this.setState( { persons : persons} );
     }
     
+    togglePersonsHandler = () => {
+        // arrow function to property to make method that can use 'this'
+        const doesShow = this.state.showPersons;
+        this.setState({showPersons : !doesShow });   // ! converts to opposite
+    }
+
+    deletePersonHandler = (personIndex) => {
+        // const persons = this.state.persons;
+        // persons.splice(personIndex, 1);           // bad practice, unpredictable
+
+        // const persons = this.state.persons.slice();   // splice makes copy safe to manipulate
+
+        const persons = [...this.state.persons]; // new array with obj from old 
+        persons.splice(personIndex, 1); 
+        this.setState( { persons : persons } );
+    }
 
     render() {
         // BUTTON -- 'inline' style css must be written in javascript
         const style ={
-            backgroundColor: 'white',
+            backgroundColor: 'green',
+            color: 'white',
             font: 'inherit',
             border: '1px solid blue',
             padding: '8px',
             cursor: 'pointer',
         }
 
+        let persons = null; // dynamic toggle
+        
+        if ( this.state.showPersons ) {
+            persons= (
+                <div>                    
+                    {this.state.persons.map( (person, index) => {
+                        //output state list with map
+                        return <Person 
+                            click={() => this.deletePersonHandler(index)}
+                            name={person.name} 
+                            age={person.age}
+                            key={person.id}
+                            changed={(event) => this.nameChangedHandler(event, person.id)}
+                            />
+                    })}
+                </div>
+            );
+
+            style.backgroundColor = 'red';
+
+        }
+
         return (
             <div className="App">
                 <h1>hello, world!</h1>
-                <p>small stuff</p>
+                <p>click toggle to show persons, delete or change names dynamically</p>
 
                 <button 
                     style={style}
-                    onClick={() => this.switchNameHandler('griffin!!')}>Switch Name</button>  
+                    onClick={this.togglePersonsHandler}>Toggle Persons</button>  
 
-                <Person 
-                    name={this.state.persons[0].name} 
-                    age={this.state.persons[0].age}
-                    click={this.switchNameHandler.bind(this, "Haley Griffin")} // change name click
-                    >i like music</Person>
-
-                <Person 
-                    name={this.state.persons[1].name} 
-                    age={this.state.persons[1].age}
-                    changed={this.nameChangedHandler}     // change name input
-                    >i like cars</Person>
-
-                <Person 
-                    name={this.state.persons[2].name} 
-                    age={this.state.persons[2].age}
-                    >i like games</Person>
-
+                {persons}
             </div>
         );
-
-        //                         element  object  children  text
-        // return React.createElement('div',null,'h1','hello world');
-
-        //                                                         h1 elememnt      h1 text       reg text
-        // return React.createElement('div',null,React.createElement('h1',null,'hellow world?'),'hello world');
-
-        //           create div                    css                  create h1 child
-        // return React.createElement('div',{className:'App'},React.createElement('h1',null,'hello world?'),'hello world');
     }
 }
 
