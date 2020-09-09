@@ -87,12 +87,21 @@ class App extends Component {
 
         }
 
-        let classes = ['red', 'bold'].join(' ');
+        // let classes = ['red', 'bold'].join(' ');
+        const classes =[];
+
+        if (this.state.persons.length <= 2){
+            classes.push('red');    // classes =['red']
+        }
+        
+        if(this.state.persons.length <= 1){
+            classes.push('bold');   // classes = ['red', 'bold']
+        }
 
         return (
             <div className="App">
                 <h1>hello, world!</h1>
-                <p>click toggle to show persons, delete or change names dynamically</p>
+                <p className={classes.join(' ')}>click toggle to show persons, delete or change names dynamically</p>
 
                 <button 
                     style={style}
