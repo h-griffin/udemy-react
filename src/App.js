@@ -3,6 +3,7 @@
 //APP WITH DYNAMIC PERSONS DISPLAY
 
 import React, { Component } from 'react';
+import Radium, { StyleRoot } from 'radium';
 
 import './App.css';
 import Person from './Person/Person'
@@ -63,9 +64,14 @@ class App extends Component {
             border: '1px solid blue',
             padding: '8px',
             cursor: 'pointer',
+            ':hover': {
+                backgroundColor: 'lightgreen',
+                color: 'black',
+            } // sudo selectors supported only because of radium
         }
 
-        let persons = null; // dynamic toggle
+        // dynamic toggle
+        let persons = null; 
         
         if ( this.state.showPersons ) {
             persons= (
@@ -83,9 +89,16 @@ class App extends Component {
                 </div>
             );
 
+            //dynamic style changes overide 
             style.backgroundColor = 'red';
+            style[':hover'] = {
+                backgroundColor: 'salmon',
+                color: 'black',
+            }
 
         }
+
+        //dynamic styles
 
         // let classes = ['red', 'bold'].join(' ');
         const classes =[];
@@ -93,25 +106,28 @@ class App extends Component {
         if (this.state.persons.length <= 2){
             classes.push('red');    // classes =['red']
         }
-        
+
         if(this.state.persons.length <= 1){
             classes.push('bold');   // classes = ['red', 'bold']
         }
 
+        // style root needed for media query not sudo selector
         return (
-            <div className="App">
-                <h1>hello, world!</h1>
-                <p className={classes.join(' ')}>click toggle to show persons, delete or change names dynamically</p>
+            <StyleRoot>
+                <div className="App">
+                    <h1>hello, world!</h1>
+                    <p className={classes.join(' ')}>click toggle to show persons, delete or change names dynamically</p>
 
-                <button 
-                    style={style}
-                    onClick={this.togglePersonsHandler}>Toggle Persons</button>  
-
-                {persons}
-            </div>
+                    <button 
+                        style={style}
+                        onClick={this.togglePersonsHandler}>Toggle Persons</button>  
+        
+                    {persons}
+                </div>
+            </StyleRoot>
         );
     }
 }
 
-export default App;
+export default Radium(App); // higher order component
 
