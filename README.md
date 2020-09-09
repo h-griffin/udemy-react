@@ -47,3 +47,8 @@ app.js remove logo import
 - class based components modify state
 - to use onclick in coponent, pass ref in as prop
 - inline and component styling
+
+- radium
+
+- styled-components
+
