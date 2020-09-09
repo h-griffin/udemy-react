@@ -1,4 +1,5 @@
 import React from 'react';
+import Radium from 'radium';
 
 import './Person.css';
 
@@ -9,10 +10,14 @@ import './Person.css';
 // pass click handler to component
 // stateless component - does not manage state
 const person = (props) => {  
-    // return <p>im a random person, and i am {Math.floor(Math.random()*30)} years old</p>
-    
+    const style = {
+        '@media (min-width : 500px)': {
+            width: '450px'
+        }
+    }
+
     return (
-        <div className='Person'>
+        <div className='Person' style={style}> 
             <p>i am {props.name} and i am {props.age} years old</p>
             <p onClick={props.click}> delete </p>
             <p>{props.children}</p>
@@ -21,4 +26,4 @@ const person = (props) => {
         )
 };
 
-export default person;
+export default Radium(person);
