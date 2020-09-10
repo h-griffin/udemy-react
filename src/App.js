@@ -1,12 +1,9 @@
-// APP WITH CLASS BASED COMPONENTS
-
-//APP WITH DYNAMIC PERSONS DISPLAY
 
 import React, { Component } from 'react';
-import Radium, { StyleRoot } from 'radium';
 
 import './App.css';
 import Person from './Person/Person'
+
 
 // stateful component - manages state
 class App extends Component {
@@ -45,30 +42,12 @@ class App extends Component {
     }
 
     deletePersonHandler = (personIndex) => {
-        // const persons = this.state.persons;
-        // persons.splice(personIndex, 1);           // bad practice, unpredictable
-
-        // const persons = this.state.persons.slice();   // splice makes copy safe to manipulate
-
         const persons = [...this.state.persons]; // new array with obj from old 
-        persons.splice(personIndex, 1); 
+        persons.splice(personIndex, 1);     // splice makes copy safe to manipulate
         this.setState( { persons : persons } );
     }
 
     render() {
-        // BUTTON -- 'inline' style css must be written in javascript
-        const style ={
-            backgroundColor: 'green',
-            color: 'white',
-            font: 'inherit',
-            border: '1px solid blue',
-            padding: '8px',
-            cursor: 'pointer',
-            ':hover': {
-                backgroundColor: 'lightgreen',
-                color: 'black',
-            } // sudo selectors supported only because of radium
-        }
 
         // dynamic toggle
         let persons = null; 
@@ -113,21 +92,23 @@ class App extends Component {
 
         // style root needed for media query not sudo selector
         return (
-            <StyleRoot>
-                <div className="App">
-                    <h1>hello, world!</h1>
-                    <p className={classes.join(' ')}>click toggle to show persons, delete or change names dynamically</p>
+            
+            <div className="App">
+                <h1>hello, world!</h1>
+                <p className={classes.join(' ')}>click toggle to show persons, delete or change names dynamically</p>
 
-                    <button 
-                        style={style}
-                        onClick={this.togglePersonsHandler}>Toggle Persons</button>  
-        
-                    {persons}
-                </div>
-            </StyleRoot>
+                <StyledButton 
+                alt={this.state.showPersons} 
+                onClick={this.togglePersonsHandler}>
+                    Toggle Persons</StyledButton>
+
+                {persons}
+
+            </div>
+            
         );
     }
 }
 
-export default Radium(App); // higher order component
+export default App; // higher order component
 

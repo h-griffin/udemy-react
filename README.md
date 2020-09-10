@@ -47,3 +47,49 @@ app.js remove logo import
 - class based components modify state
 - to use onclick in coponent, pass ref in as prop
 - inline and component styling
+
+- radium
+
+- styled-components
+
+> $ npm run eject
+
+**webpack.config.dev.js**
+```
+            test: /\.css$/,
+            use: [
+              require.resolve('style-loader'),
+              {
+                loader: require.resolve('css-loader'),
+                options: {
+                  importLoaders: 1,
+                  modules: true,
+                  localIdentName: '[name]__[local]__[hash:base64:5]'
+                },
+              },
+```
+**webpack.config.prod.js**
+
+```
+            test: /\.css$/,
+            loader: ExtractTextPlugin.extract(
+              Object.assign(
+                {
+                  fallback: {
+                    loader: require.resolve('style-loader'),
+                    options: {
+                      hmr: false,
+                    },
+                  },
+                  use: [
+                    {
+                      loader: require.resolve('css-loader'),
+                      options: {
+                        importLoaders: 1,
+                        minimize: true,
+                        sourceMap: shouldUseSourceMap,
+                        modules: true,
+                        localIdentName: '[name]__[local]__[hash:base64:5]'
+                      },
+                    },
+```
