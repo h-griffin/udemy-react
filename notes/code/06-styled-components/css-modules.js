@@ -125,3 +125,37 @@ class App extends Component {
 
 export default App; // higher order component
 
+// .App {
+//     text-align: center;
+//   }
+  
+//   .red {
+//       color: red;
+//   }
+  
+//   .bold {
+//       font-weight: bold;
+//   }
+  
+//   /* classes that also have app class / inside the return div class app */
+//   .App Button{
+//       background-color: green;
+//       color: white;
+//       font: inherit;
+//       border: 1px solid blue;
+//       padding: 8px;
+//       cursor: pointer;
+//   }
+  
+//   .App Button:hover{
+//       background-color: lightgreen;
+//       color: black;
+//   }
+  
+//   .App button.Red{
+//       background-color: red;
+//   }
+  
+//   .App button.Red:hover{
+//       background-color: salmon;
+//   }
