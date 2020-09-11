@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 import classes from './App.css';
 import Person from './Person/Person'
-
+import ErrorBoundary from './ErrorBoundary/ErrorBoundary'
 
 // stateful component - manages state
 class App extends Component {
@@ -62,7 +62,7 @@ class App extends Component {
                 <div>                    
                     {this.state.persons.map( (person, index) => {
                         //output state list with map
-                        return <Person 
+                        return <Person //error boundary: key must be on outer element for map method
                             click={() => this.deletePersonHandler(index)}
                             name={person.name} 
                             age={person.age}
@@ -104,11 +104,6 @@ class App extends Component {
             <div className={classes.App} >
                 <h1>hello, world!</h1>
                 <p className={assignedClasses.join(' ')}>click toggle to show persons, delete or change names dynamically</p>
-
-                {/* <StyledButton 
-                alt={this.state.showPersons} 
-                onClick={this.togglePersonsHandler}>
-                    Toggle Persons Styled</StyledButton> */}
 
                 <button
                 className={btnClass.join(' ')}

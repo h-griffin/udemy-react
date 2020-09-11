@@ -1,4 +1,4 @@
-## udemy react app guide
+## [React: Udemy - Maximilian Schwarzmüller](https://www.udemy.com/course/react-the-complete-guide-incl-redux/)
 
 # TABLE OF CONTENTS
 ## 1-2 -Javascript
@@ -39,6 +39,19 @@
     - [More information about CSS Modules:](https://github.com/css-modules/css-modules)
 
 ## 6 -Debugging React Apps
+1. [debugging](notes/code/10-debugging-fin)
+    #### Useful Resources & Links
+    - [Error Boundaries:](https://reactjs.org/docs/error-boundaries.html)
+    - [Chrome Devtool Debugging:](https://developers.google.com/web/tools/chrome-devtools/javascript/)
+
+## 7 -Component Deep Dive
+
+
+
+
+
+
+
 
 
 
