@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 
-import './App.css';
+import classes from './App.css';
 import Person from './Person/Person'
 
 
@@ -48,6 +48,11 @@ class App extends Component {
     }
 
     render() {
+        // const style ={
+        //     color: 'black',
+        // }
+
+        let btnClass= [classes.Button];
 
         // dynamic toggle
         let persons = null; 
@@ -68,40 +73,48 @@ class App extends Component {
                 </div>
             );
 
-            //dynamic style changes overide 
-            style.backgroundColor = 'red';
-            style[':hover'] = {
-                backgroundColor: 'salmon',
-                color: 'black',
-            }
+
+            btnClass.push(classes.Red);
+            // dynamic style changes overide 
+            // style.backgroundColor = 'red';
+            // style[':hover'] = {
+            //     backgroundColor: 'salmon',
+            //     color: 'black',
+            // }
 
         }
 
         //dynamic styles
 
         // let classes = ['red', 'bold'].join(' ');
-        const classes =[];
+        const assignedClasses =[];
 
+        // classes.red pulls class module from css import
         if (this.state.persons.length <= 2){
-            classes.push('red');    // classes =['red']
+            assignedClasses.push(classes.red);    // assignedClasses =['red']
         }
 
         if(this.state.persons.length <= 1){
-            classes.push('bold');   // classes = ['red', 'bold']
+            assignedClasses.push(classes.bold);   // assignedClasses = ['red', 'bold']
         }
 
         // style root needed for media query not sudo selector
         return (
             
-            <div className="App">
+            <div className={classes.App} >
                 <h1>hello, world!</h1>
-                <p className={classes.join(' ')}>click toggle to show persons, delete or change names dynamically</p>
+                <p className={assignedClasses.join(' ')}>click toggle to show persons, delete or change names dynamically</p>
 
-                <StyledButton 
+                {/* <StyledButton 
                 alt={this.state.showPersons} 
                 onClick={this.togglePersonsHandler}>
-                    Toggle Persons</StyledButton>
+                    Toggle Persons Styled</StyledButton> */}
 
+                <button
+                className={btnClass.join(' ')}
+                onClick={this.togglePersonsHandler}>
+                    toggle person regular
+                </button>
                 {persons}
 
             </div>
