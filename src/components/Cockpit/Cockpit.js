@@ -1,12 +1,26 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import classes from './Cockpit.css'
 
 const cockpit = (props) => {
+
+    useEffect( () => {
+        // every render cycle & update
+        console.log('[cockpit.js] use effect');
+
+        // http request..
+        setTimeout(() => {
+            alert('saved data');
+        }, 1000);
+    }, [] ); //give array for only change
+
+
     // let classes = ['red', 'bold'].join(' ');
     const assignedClasses =[];
     let btnClass = '';
-    btnClass = classes.Red;
+    if (props.showPersons) {
+        btnClass = classes.Red;
+    }
 
     if (props.showPersons){
         btnClass = classes.Red;
@@ -21,13 +35,13 @@ const cockpit = (props) => {
     }
     return(
         <div className={classes.Cockpit}>
-            <h1>hello, world!</h1>
+            <h1>{props.title}</h1>
                 <p className={assignedClasses.join(' ')}>click toggle to show persons, delete or change names dynamically</p>
 
                 <button
                 className={btnClass}
                 onClick={props.clicked}>
-                    toggle person regular
+                    toggle person
                 </button>
         </div>
     );

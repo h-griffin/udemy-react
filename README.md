@@ -45,7 +45,9 @@
     - [Chrome Devtool Debugging:](https://developers.google.com/web/tools/chrome-devtools/javascript/)
 
 ## 7 -Component Deep Dive
-
+1. [creation lifecycle](notes/code/11-cmp-creation-lifecycle)
+2. [update lifecycle props](notes/code/12-lifecycle-update-props)
+3. [update lifecycle state](notes/code/13-lifecycle-update-state)
 
 
 
