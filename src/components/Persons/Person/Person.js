@@ -1,16 +1,10 @@
 import React from 'react';
-import styled from 'styled-components';
 
 import classes from './Person.css'; //css modules
 // import './Person.css';
 
 
 const person = (props) => {  
-    // const rnd = Math.random();
-
-    // if ( rnd > 0.7 ){
-    //     throw new Error(' something went wrong' );
-    // }
 
     return (
         
@@ -26,11 +20,3 @@ const person = (props) => {
 
 export default person;
 
-// notes
-
-// function lowercase same name as component/file name
-
-// arrow function
-
-// pass click handler to component
-// stateless component - does not manage state

@@ -67,8 +67,17 @@ class App extends Component {
       );
 
       btnClass = classes.Red;
+
+    //   btnClass.push(classes.Red);
+      // dynamic style changes overide 
+      // style.backgroundColor = 'red';
+      // style[':hover'] = {
+      //     backgroundColor: 'salmon',
+      //     color: 'black',
+      // }
     }
 
+    //dynamic styles
     const assignedClasses = [];
     if (this.state.persons.length <= 2) {
       assignedClasses.push(classes.red); // classes = ['red']

@@ -62,8 +62,7 @@
 > $ npm start
 
 ## notes
-
-## file structure
+### file structure
 **node_modules**
 dont touch
 
@@ -77,6 +76,13 @@ dont touch
     imports app object from app file
     render one root component (app)
 - app.js 
+
+**components** : small components that go into a bigger component, like app
+- Cockpit
+- Persons
+
+**containers** : higher order components, like app, that hold smaller components
+- app .css / .js / .test.js
 
 - app.js app component
     - component must return one root element (big div)
