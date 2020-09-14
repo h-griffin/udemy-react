@@ -48,12 +48,23 @@
 1. [creation lifecycle](notes/code/11-cmp-creation-lifecycle)
 2. [update lifecycle props](notes/code/12-lifecycle-update-props)
 3. [update lifecycle state](notes/code/13-lifecycle-update-state)
-
-
-
-
-
-
+4. [useEffect](notes/code/14-useEffect)
+5. [shouldComponentUpdate - memo](notes/code/15-shouldComponentUpdate-memo)
+6. [higher order components - auxillary](notes/code/16-hoc-auxillary)
+7. [hoc - passing unknown props](notes/code/17-hoc-passing-unknown-props)
+8. [setting/updating state correctly](notes/code/18-updating-state)
+9. [propTypes](notes/code/19-propTypes)
+10. [refs with react hooks](notes/code/20-references-react-hooks)
+11. [contextType & useContext](notes/code/21-contextType-useContext)
+    #### Notes
+    - [adjacent jsx](notes/adjacent-jsx.md)
+    #### Useful Resources & Links
+    - [reference vs primitave types](https://academind.com/learn/javascript/reference-vs-primitive-values/)
+    - [More on useEffect():](https://reactjs.org/docs/hooks-effect.html)
+    - [State & Lifecycle:](https://reactjs.org/docs/state-and-lifecycle.html)
+    - [PropTypes:](https://reactjs.org/docs/typechecking-with-proptypes.html)
+    - [Higher Order Components:](https://reactjs.org/docs/higher-order-components.html)
+    - [Refs:](https://reactjs.org/docs/refs-and-the-dom.html)
 
 
 
