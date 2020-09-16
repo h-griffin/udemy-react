@@ -66,6 +66,8 @@
     - [Higher Order Components:](https://reactjs.org/docs/higher-order-components.html)
     - [Refs:](https://reactjs.org/docs/refs-and-the-dom.html)
 
+## 8 -Burger Builder : Basic
+- [burger builder](https://github.com/h-griffin/burger-builder-udemy)
 
 
 
@@ -96,6 +98,9 @@ dont touch
 
 **containers** : higher order components, like app, that hold smaller components
 - app .css / .js / .test.js
+
+componetns - stateless
+containers - stateful
 
 - app.js app component
     - component must return one root element (big div)
